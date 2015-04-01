@@ -1,0 +1,11 @@
+# no .pyc files
+*.pyc
+
+# protect keys, tokens, and passwords
+secret.py
+
+# ignore local sqlite database files
+**/db.sqlite*
+
+# ignore fabfile
+fabfile.py

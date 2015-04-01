@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'stream/style.css' %}">
+{% endblock styles %}
+
+{% block content %}
+
+<div class="main-content">
+	<h1>{{ user.profile.display_name }}</h1>
+	<p>{{ user.profile.bio }}</p>
+</div>
+
+
+{% endblock content %}
