@@ -1,7 +1,7 @@
-from zach.settings.defaults import *
+from zach.settings.base import *
 from zach.secret import SECRET_KEY, DB_PASS
 
-DEBUG = FALSE
+DEBUG = False
 
 ALLOWED_HOSTS = ['sexymic.bejoty.com']
 
