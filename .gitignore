@@ -1,6 +1,9 @@
 # no .pyc files
 *.pyc
 
+# no .swp files
+*.swp
+
 # protect keys, tokens, and passwords
 secret.py
 
