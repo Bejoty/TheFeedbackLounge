@@ -3,15 +3,15 @@ from stream.models import Game, Stream
 
 
 class GameAdmin(admin.ModelAdmin):
-	list_display = ('title', 'code')
+  list_display = ('title', 'code')
 
 
 class StreamAdmin(admin.ModelAdmin):
-	fieldsets = [
-		(None,	{'fields': ['date', 'day_off']}),
-		(None,	{'fields': ['featured_game', 'start', 'end', 'description']}),
-	]
-	list_display = ('date', 'start', 'end', 'featured_game')
+  fieldsets = [
+    (None,  {'fields': ['date', 'day_off']}),
+    (None,  {'fields': ['featured_game', 'start', 'end', 'description']}),
+  ]
+  list_display = ('date', 'start', 'end', 'featured_game')
 
 
 admin.site.register(Game, GameAdmin)
