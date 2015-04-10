@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'mptt',
     'tagging',
     'zinnia',
+    'zinnia_wymeditor',
 )
 
 MIDDLEWARE_CLASSES = (
