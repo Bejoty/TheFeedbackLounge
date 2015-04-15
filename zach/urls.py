@@ -3,6 +3,7 @@ from django.contrib import admin
 
 from zach import views
 import twitch_profiles
+import twitchauth
 
 urlpatterns = patterns('',
     # Examples:
@@ -14,6 +15,9 @@ urlpatterns = patterns('',
     url(r'^base/', include('base.urls', namespace='base')),
     url(r'^stream/', include('stream.urls', namespace='stream')),
     url(r'^twitchauth/', include('twitchauth.urls', namespace='twitchauth')),
+    url(r'^connect/', twitchauth.views.connect, name='connect'),
+    url(r'^logout/', twitchauth.views.logout_user, name='logout'),
+    url(r'^auth/', twitchauth.views.auth, name='authenticate'),
     url(r'^news/', include('zinnia.urls', namespace='zinnia')),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^u/', include('twitch_profiles.urls', namespace='profiles')),

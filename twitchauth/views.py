@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth import logout
 from django.contrib.auth.models import User, UserManager
 from twitch_profiles.models import Profile
 import urllib
@@ -9,10 +10,24 @@ from zach.secret import TWITCH_ID, TWITCH_SECRET
 
 
 def connect(request):
-	import os
-	print(os.path.dirname(__file__))
-	referer = request.META['HTTP_REFERER']
-	print(referer)
+	# User is already connected
+	if 'name' in request.session:
+		return HttpResponseRedirect(reverse('index'))
+
+	# URL for Twitch authentication, with query parameteres
+	auth_url = (
+		'https://api.twitch.tv/kraken/oauth2/authorize'
+    '?response_type=code'
+    '&client_id=' + TWITCH_ID +
+    '&redirect_uri=http://' + request.get_host() + reverse('authenticate') +
+    '&scope=user_read'
+  )
+
+	# Append query parameter for post-authentication URL redirect
+	if 'HTTP_REFERER' in request.META:
+		auth_url += '&state=' + request.META['HTTP_REFERER']
+
+	return HttpResponseRedirect(auth_url)
 
 
 def auth(request):
@@ -26,7 +41,7 @@ def auth(request):
 		'client_id': TWITCH_ID,
 		'client_secret': TWITCH_SECRET,
 		'grant_type': 'authorization_code',
-		'redirect_uri': 'http://' + request.get_host() + reverse('twitchauth:auth'),
+		'redirect_uri': 'http://' + request.get_host() + reverse('authenticate'),
 		'code': code
 		})
 	data = data.encode('utf-8')
@@ -35,10 +50,10 @@ def auth(request):
 	token_res = urllib.request.urlopen(token_req, data)
 
 	# Acquire access token
-	token = json.loads(token_res.read().decode('utf-8'))
-	access_token = token['access_token']
+	token_data = json.loads(token_res.read().decode('utf-8'))
+	access_token = token_data['access_token']
 
-	# Update user profile
+	# Request Twitch user information
 	user_req = urllib.request.Request('https://api.twitch.tv/kraken/user')
 	user_req.add_header('Authorization', 'OAuth ' + access_token)
 	user_res = urllib.request.urlopen(user_req)
@@ -54,23 +69,29 @@ def auth(request):
 	# Create new user if applicable
 	if not User.objects.filter(username=name).exists():
 		user = User.objects.create_user(username=name, email=email)
-		# logo = 
-		p = Profile(user=user, display_name=display_name, bio=bio, access_token=access_token)
+		p = Profile(user=user)
 		p.save()
 
 	# Update user profile
 	user = User.objects.get(username=name)
+	p = Profile.objects.get(user=user)
+	p.display_name = display_name
+	p.logo_url = logo_url
+	p.bio = bio
+	p.access_token = access_token
+	p.save()
 
-
-	password = UserManager.make_random_password(user)
-
-
-	# Save session
+	# Save session (log in)
 	request.session['name'] = name
 
-	#return HttpResponseRedirect(reverse('profile'))
-	return HttpResponseRedirect(reverse('profiles:view', args=(name,)))
+	return HttpResponseRedirect(state)
 
+
+def logout_user(request):
+	logout(request)
+	if 'HTTP_REFERER' in request.META:
+		return HttpResponseRedirect(request.META['HTTP_REFERER'])
+	return HttpResponseRedirect(reverse('index'))
 
 def test(request):
 	if 'name' in request.session:
