@@ -23,4 +23,3 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/home/bejoty/webapps/sexymic_static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/bejoty/webapps/sexymic_media/'
-
