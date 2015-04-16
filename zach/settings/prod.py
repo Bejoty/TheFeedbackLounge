@@ -14,9 +14,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sexymic_db',
         'USER': 'db_admin',
-        'PASSWORD': 'notthebestpassword',
+        'PASSWORD': DB_PASS,
     }
-
 }
 
 STATIC_URL = '/static/'
