@@ -34,7 +34,10 @@ def auth(request):
 	# Capture authorization code, scope, and pre-authorized website state
 	code = request.GET['code']
 	scope = request.GET['scope']
-	state = request.GET['state']
+	if 'state' in request.GET:
+		state = request.GET['state']
+	else:
+		state = reverse('index')
 	
 	# Request access token from Twitch
 	data = urllib.parse.urlencode({
