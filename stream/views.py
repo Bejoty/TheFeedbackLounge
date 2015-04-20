@@ -10,5 +10,7 @@ def new(request):
   return render(request, 'stream/new.html')
 
 def test(request):
-  channel = get_object_or_404(Channel, pk=1)
+  channel = get_object_or_404(Channel, name='mic_feedback')
+  if not channel.recently_updated():
+    channel.update()
   return render(request, 'stream/test.html', {'channel': channel})

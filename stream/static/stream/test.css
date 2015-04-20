@@ -10,10 +10,44 @@
 #twitch-stats img {
   max-height: 200px;
   float: left;
-  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.8);
   margin: 20px;
 }
 
-#twitch-stats img:hover {
+span.offline {
+  display: none;
+}
+
+span.live {
+  margin-left: 10px;
+  color: #da0;
+  font-weight: bold
+}
+
+img.offline {
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.7);
+}
+
+img.offline:hover {
   box-shadow: 0px 0px 15px 5px rgba(221,170,0,0.7);
+}
+
+img.live {
+  box-shadow: 0px 0px 10px 5px rgba(221,170,0,0.7);
+}
+
+img.live:hover {
+  box-shadow: 0px 0px 10px 5px rgba(221,170,0,1);
+}
+
+#debug {
+  background: rgba(221,221,221,0.2);
+  padding: 15px;
+  margin: 10px;
+  clear: both;
+}
+
+.nav-tabs > li.active > a {
+  background: none;
+  border: none;
+  color: #da0;
 }

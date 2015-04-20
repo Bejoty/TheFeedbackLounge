@@ -27,8 +27,9 @@
 {% block content %}
 
 <div id="twitch-stats">
-  <a href="{{ channel.url }}"><img src="{{ channel.video_banner_url }}" /></a>
-  <p>{{ channel.display_name }}</p>
+  <a href="{{ channel.url }}"><img class="{{ channel.state }}" src="{{ channel.video_banner_url }}" /></a>
+  <a style="float:right;" href="http://teespring.com/twitch/mic_feedback"><img src="http://vangogh.teespring.com/shirt_pic/2125522/2345731/300/6151/front.png" /></a>
+  <p>{{ channel.display_name }} <span class="{{ channel.state }}">Live <em>({{ channel.viewers }} viewers)</em></span></p>
   <p>{{ channel.game }}</p>
   <p>Views: {{ channel.views }}</p>
   <p>Followers: {{ channel.followers }}</p>

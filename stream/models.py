@@ -32,6 +32,9 @@ class Channel(models.Model):
   views = models.IntegerField(default=0)
   followers = models.IntegerField(default=0)
 
+  state = models.CharField(max_length=25)
+  viewers = models.IntegerField(default=0)
+
   url = models.URLField()
   logo_url = models.URLField()
   video_banner_url = models.URLField()
@@ -46,19 +49,33 @@ class Channel(models.Model):
     return self.last_updated >= timezone.now() - datetime.timedelta(minutes=1)
 
   def update(self):
+    #TODO: Client ID header to avoid rate limiting
+
     req = urllib.request.Request('https://api.twitch.tv/kraken/channels/' + self.name)
     res = urllib.request.urlopen(req)
-    data = json.loads(res.read().decode('utf-8'))
+    channel_data = json.loads(res.read().decode('utf-8'))
 
-    self.display_name = data['display_name']
-    self.status = data['status']
-    self.game = data['game']
-    self.views = data['views']
-    self.followers = data['followers']
+    self.display_name = channel_data['display_name']
+    self.status = channel_data['status']
+    self.game = channel_data['game']
+    self.views = channel_data['views']
+    self.followers = channel_data['followers']
 
-    self.url = data['url']
-    self.logo_url = data['logo']
-    self.video_banner_url = data['video_banner']
-    self.profile_banner_url = data['profile_banner']
+    self.url = channel_data['url']
+    self.logo_url = channel_data['logo']
+    self.video_banner_url = channel_data['video_banner']
+    self.profile_banner_url = channel_data['profile_banner']
+
+    req = urllib.request.Request('https://api.twitch.tv/kraken/streams/' + self.name)
+    res = urllib.request.urlopen(req)
+    stream_data = json.loads(res.read().decode('utf-8'))
+
+    self.state = 'offline'
+
+    if stream_data['stream']:
+      self.state = 'live'
+      stream = stream_data['stream']
+      self.video_banner_url = stream['preview']['medium']
+      self.viewers = stream['viewers']
 
     self.save()
