@@ -26,15 +26,13 @@
 
 {% block content %}
 
-<div class="col-gutter hidden-xs"></div>
-
 <div id="twitch-stats">
-  <p>{{ channel.status }}</p>
   <a href="{{ channel.url }}"><img src="{{ channel.video_banner_url }}" /></a>
   <p>{{ channel.display_name }}</p>
   <p>{{ channel.game }}</p>
   <p>Views: {{ channel.views }}</p>
   <p>Followers: {{ channel.followers }}</p>
+  <p>{{ channel.status }}</p>
 </div>
 
 <div class="col-gutter hidden-xs"></div>
