@@ -5,12 +5,14 @@
 
 .main-content {
   background: none;
+  margin: 0;
+  padding: 0 16px;
 }
 
 #twitch-stats img {
   max-height: 200px;
   float: left;
-  margin: 20px;
+  margin-right: 20px;
 }
 
 span.offline {
@@ -20,7 +22,9 @@ span.offline {
 span.live {
   margin-left: 10px;
   color: #da0;
-  font-weight: bold
+  font-weight: bold;
+  box-shadow: 0 0 10px 10px rgba(221, 170, 0, 0.2);
+  background: rgba(221, 170, 0, 0.2);
 }
 
 img.offline {
@@ -39,15 +43,31 @@ img.live:hover {
   box-shadow: 0px 0px 10px 5px rgba(221,170,0,1);
 }
 
-#debug {
-  background: rgba(221,221,221,0.2);
-  padding: 15px;
-  margin: 10px;
-  clear: both;
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:active,
+.nav-tabs > li.active > a:focus {
+  background: none;
+  border: 1px solid transparent;
+  color: #da0;
 }
 
-.nav-tabs > li.active > a {
-  background: none;
-  border: none;
-  color: #da0;
+.nav-tabs {
+  border-top: 2px solid #CCD;
+}
+
+#promo {
+  float: right;
+  border-left: 2px solid #CCD;
+  padding: 10px;
+  text-align: center;
+  min-width: 250px;
+}
+
+#promo img {
+  max-height: 200px;
+}
+
+blockquote {
+  border-left: 2px solid #CCD;
 }
