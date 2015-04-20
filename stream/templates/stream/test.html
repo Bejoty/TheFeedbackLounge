@@ -6,6 +6,7 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'stream/style.css' %}">
+<link rel="stylesheet" href="{% static 'stream/test.css' %}">
 <link href='http://fonts.googleapis.com/css?family=Germania+One' rel='stylesheet' type='text/css'>
 {% endblock styles %}
 
@@ -27,14 +28,13 @@
 
 <div class="col-gutter hidden-xs"></div>
 
-<!-- STREAM AND SIDEBARS -->
-<div class="hidden-xs col-sm-8" id="stream-block">
-  <div id="twitch_embed_player"></div>
-</div>
-<div class="col-xs-12 col-sm-4" id="sidebar-right">
-  <div id="schedule-days"></div>
-  <div id="schedule-grid"></div>
-  <div id="schedule-details"><div id="schedule-time"></div><div id="schedule-info"></div></div>
+<div id="twitch-stats">
+  <p>{{ channel.status }}</p>
+  <a href="{{ channel.url }}"><img src="{{ channel.video_banner_url }}" /></a>
+  <p>{{ channel.display_name }}</p>
+  <p>{{ channel.game }}</p>
+  <p>Views: {{ channel.views }}</p>
+  <p>Followers: {{ channel.followers }}</p>
 </div>
 
 <div class="col-gutter hidden-xs"></div>
