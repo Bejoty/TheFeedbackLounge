@@ -27,10 +27,10 @@ class Channel(models.Model):
   name = models.CharField(max_length=25)
 
   display_name = models.CharField(max_length=25)
-  status = models.CharField(max_length=50)
+  status = models.CharField(max_length=250)
   game = models.CharField(max_length=50)
-  views = models.IntegerField()
-  followers = models.IntegerField()
+  views = models.IntegerField(default=0)
+  followers = models.IntegerField(default=0)
 
   url = models.URLField()
   logo_url = models.URLField()
