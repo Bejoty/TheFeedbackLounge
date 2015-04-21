@@ -22,5 +22,6 @@ urlpatterns = patterns('',
     url(r'^comments/', include('django_comments.urls')),
     url(r'^u/', include('twitch_profiles.urls', namespace='profiles')),
     url(r'^sessiontest/', twitch_profiles.views.session_test, name='test'),
+    url(r'^modtools/', include('modtools.urls', namespace='modtools')),
     url(r'^(?P<username>\w+)/$', twitch_profiles.views.view, name='view'),
 )

@@ -32,6 +32,7 @@ INSTALLED_APPS = (
     'stream',
     'twitchauth',
     'twitch_profiles',
+    'modtools',
     'django_comments',
     'mptt',
     'tagging',
