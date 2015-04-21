@@ -26,19 +26,20 @@
 
 {% block content %}
 
-<div id="promo"><a href="http://teespring.com/twitch/mic_feedback"><img src="http://vangogh.teespring.com/shirt_pic/2125522/2345731/300/6151/front.png" /></a></div>
-<div id="twitch-stats">
-  <a href="{{ channel.url }}"><img class="{{ channel.state }}" src="{{ channel.video_banner_url }}" /></a>
-  
-  <p><strong>{{ channel.display_name }}</strong> <span class="{{ channel.state }}">Live <em>({{ channel.viewers }} viewers)</em></span></p>
-  <p>{{ channel.game }}</p>
-  <p>Views: {{ channel.views }}</p>
-  <p>Followers: {{ channel.followers }}</p>
+<div id="highlights">
+  <div id="promo"><a target="_blank" title="PREMO DOG ON A SHIRT" href="http://teespring.com/twitch/mic_feedback"><img src="{% static 'stream/shirt.png' %}" /></a></div>
+
+  <div id="twitch-stats">
+    <a target="_blank" href="{{ channel.url }}"><img class="{{ channel.state }}" src="{{ channel.video_banner_url }}" /></a>
+    
+    <p><strong>{{ channel.display_name }}</strong> <span class="{{ channel.state }}">Live <em>({{ channel.viewers }} viewers)</em></span></p>
+    <p>{{ channel.game }}</p>
+    <p>Views: {{ channel.views }}</p>
+    <p>Followers: {{ channel.followers }}</p>
+  </div>
+
+  <div id="status" class="{{ channel.state }}">{{ channel.status }}</div>
 </div>
-
-<blockquote style="clear:both;">{{ channel.status }}</blockquote>
-
-<div class="col-gutter hidden-xs"></div>
 
 <!-- Nav tabs -->
 <ul class="col-xs-12 nav nav-tabs" role="tablist">

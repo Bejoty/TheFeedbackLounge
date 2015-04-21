@@ -9,13 +9,17 @@
   padding: 0 16px;
 }
 
+#highlights {
+  margin: 16px;
+}
+
 #twitch-stats img {
-  max-height: 200px;
+  max-height: 180px;
   float: left;
   margin-right: 20px;
 }
 
-span.offline {
+.offline {
   display: none;
 }
 
@@ -23,8 +27,6 @@ span.live {
   margin-left: 10px;
   color: #da0;
   font-weight: bold;
-  box-shadow: 0 0 10px 10px rgba(221, 170, 0, 0.2);
-  background: rgba(221, 170, 0, 0.2);
 }
 
 img.offline {
@@ -58,16 +60,19 @@ img.live:hover {
 
 #promo {
   float: right;
-  border-left: 2px solid #CCD;
-  padding: 10px;
+  border-radius: 20px;
+  border-left: 10px solid #CCD;
+  border-right: 10px solid #CCD;
   text-align: center;
   min-width: 250px;
 }
 
 #promo img {
-  max-height: 200px;
+  max-height: 180px;
 }
 
-blockquote {
-  border-left: 2px solid #CCD;
+#status {
+  clear: both;
+  padding: 16px 16px 0 16px;
+  margin: auto;
 }
