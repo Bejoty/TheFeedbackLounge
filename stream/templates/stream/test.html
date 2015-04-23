@@ -26,23 +26,27 @@
 
 {% block content %}
 
-<div id="highlights">
-  <div id="promo"><a target="_blank" title="PREMO DOG ON A SHIRT" href="http://teespring.com/twitch/mic_feedback"><img src="{% static 'stream/shirt.png' %}" /></a></div>
+<div id="highlights" class="row">
+  <div id="twitch-thumb" class="col-xs-5">
+    <a target="_blank" href="{{ channel.url }}">
+      <img class="{{ channel.state }}" 
+           src="{{ channel.video_banner_url }}" 
+           {% if channel.state == "live" %} title="{{ channel.status }}" {% endif %} />
+    </a>
+  </div>
 
-  <div id="twitch-stats">
-    <a target="_blank" href="{{ channel.url }}"><img class="{{ channel.state }}" src="{{ channel.video_banner_url }}" /></a>
-    
-    <p><strong>{{ channel.display_name }}</strong> <span class="{{ channel.state }}">Live <em>({{ channel.viewers }} viewers)</em></span></p>
-    <p>{{ channel.game }}</p>
+  <div id="twitch-stats" class="col-xs-4">
+    <p><strong>{{ channel.display_name }}<span class="{{ channel.state }}">Live <em>({{ channel.viewers }})</em></span></strong></p>
+    <p> <span class="{{ channel.state }}">{{ channel.game }}</span></p>
     <p>Views: {{ channel.views }}</p>
     <p>Followers: {{ channel.followers }}</p>
   </div>
-
-  <div id="status" class="{{ channel.state }}">{{ channel.status }}</div>
+    
+  <div id="promo" class="col-xs-3"><a target="_blank" title="PREMO DOG ON A SHIRT" href="http://teespring.com/twitch/mic_feedback"><img src="{% static 'stream/shirt.png' %}" /></a></div>
 </div>
 
 <!-- Nav tabs -->
-<ul class="col-xs-12 nav nav-tabs" role="tablist">
+<ul class="nav nav-tabs" role="tablist">
   <li role="presentation" class="active nav-tab"><a href="#news" role="tab" data-toggle="tab">News</a></li>
   <li role="presentation" class="nav-tab"><a href="#rules" role="tab" data-toggle="tab">Rules</a></li>
   <li role="presentation" class="nav-tab"><a href="#faq" role="tab" data-toggle="tab">FAQ</a></li>
@@ -50,12 +54,15 @@
   <li class="nav-tab pull-right"><a style="margin:0;" href="live.html">THEATER MODE</a></li>
 </ul>
 
-<div class="col-xs-12 main-content">
+<div class="main-content">
+  <a class="twitter-timeline" width="250" data-dnt="true" href="https://twitter.com/MicDaMicrophone" data-widget-id="535567719840481280">Tweets by @MicDaMicrophone</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <div style="text-align: center;"><img style="max-width: 60%;" src="{{ channel.profile_banner_url }}" /></div>
+
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="news">
-      <a class="twitter-timeline" width="250" data-dnt="true" href="https://twitter.com/MicDaMicrophone" data-widget-id="535567719840481280">Tweets by @MicDaMicrophone</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      
       <h1>The Feedback Lounge</h1>
       <p>Welcome to the Feedback Lounge! My name is Zach, but most people know me as Mic The Microphone. I've been gaming and doing music for the better majority of my life, and between that and doing VO work and voice acting, I can honestly say I'm living my dream. With years of experience, tons of gaming options, and a wonderful community at our backs, we strive to give back, entertain, and form a tight-knit family here. Follow up if you wanna kick it with us! We'd be glad to have you. :D</p>
     </div>
