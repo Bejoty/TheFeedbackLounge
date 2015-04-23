@@ -12,3 +12,6 @@ secret.py
 
 # ignore fabfile
 fabfile.py
+
+# Windows Thumb files?
+*Thumbs.db
