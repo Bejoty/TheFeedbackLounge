@@ -42,6 +42,7 @@ a, a:hover {
 }
 
 #main {
+  background: rgba(21, 46, 114, 0.9);
   min-height: 100%;
   max-width: 1000px;
   margin-bottom: -80px;
