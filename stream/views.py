@@ -4,10 +4,16 @@ from .models import Channel
 
 
 def index(request):
-  return render(request, 'stream/index.html')
+  channel = get_object_or_404(Channel, name='mic_feedback')
+  if not channel.recently_updated():
+    channel.update()
+  return render(request, 'stream/index.html', {'channel': channel})
 
 def new(request):
   return render(request, 'stream/new.html')
+
+def old(request):
+  return render(request, 'stream/old.html')
 
 def test(request):
   channel = get_object_or_404(Channel, name='mic_feedback')

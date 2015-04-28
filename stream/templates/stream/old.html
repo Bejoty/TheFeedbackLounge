@@ -6,7 +6,6 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'stream/style.css' %}">
-<link rel="stylesheet" href="{% static 'stream/test.css' %}">
 <link href='http://fonts.googleapis.com/css?family=Germania+One' rel='stylesheet' type='text/css'>
 {% endblock styles %}
 
@@ -26,45 +25,44 @@
 
 {% block content %}
 
-<div id="highlights" class="row">
-  <div id="twitch-thumb" class="col-xs-5">
-    <a target="_blank" href="{{ channel.url }}">
-      <img class="{{ channel.state }}" 
-           src="{{ channel.video_banner_url }}" 
-           {% if channel.state == "live" %} title="{{ channel.status }}" {% endif %} />
-    </a>
-  </div>
+<div class="col-gutter hidden-xs"></div>
 
-  <div id="twitch-stats" class="col-xs-4">
-    <p><strong>{{ channel.display_name }}<span class="{{ channel.state }}">Live <em>({{ channel.viewers }})</em></span></strong></p>
-    <p> <span class="{{ channel.state }}">{{ channel.game }}</span></p>
-    <p>Views: {{ channel.views }}</p>
-    <p>Followers: {{ channel.followers }}</p>
-  </div>
-    
-  <div id="promo" class="col-xs-3"><a target="_blank" title="PREMO DOG ON A SHIRT" href="http://teespring.com/twitch/mic_feedback"><img src="{% static 'stream/shirt.png' %}" /></a></div>
+<!-- STREAM AND SIDEBARS -->
+<div class="hidden-xs col-sm-8" id="stream-block">
+  <div id="twitch_embed_player"></div>
+</div>
+<div class="col-xs-12 col-sm-4" id="sidebar-right">
+  <div id="schedule-days"></div>
+  <div id="schedule-grid"></div>
+  <div id="schedule-details"><div id="schedule-time"></div><div id="schedule-info"></div></div>
 </div>
 
+<div class="col-gutter hidden-xs"></div>
+
 <!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
+<ul class="col-xs-12 nav nav-tabs" role="tablist">
   <li role="presentation" class="active nav-tab"><a href="#news" role="tab" data-toggle="tab">News</a></li>
+  <li role="presentation" class="nav-tab"><a href="#chat" role="tab" data-toggle="tab">Chat</a></li>
   <li role="presentation" class="nav-tab"><a href="#rules" role="tab" data-toggle="tab">Rules</a></li>
   <li role="presentation" class="nav-tab"><a href="#faq" role="tab" data-toggle="tab">FAQ</a></li>
   <li role="presentation" class="nav-tab"><a href="#schedule" role="tab" data-toggle="tab">Schedule</a></li>
   <li class="nav-tab pull-right"><a style="margin:0;" href="live.html">THEATER MODE</a></li>
 </ul>
 
-<div class="main-content">
-  <a class="twitter-timeline" width="250" data-dnt="true" href="https://twitter.com/MicDaMicrophone" data-widget-id="535567719840481280">Tweets by @MicDaMicrophone</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  <div style="text-align: center;"><img style="max-width: 60%;" src="{{ channel.profile_banner_url }}" /></div>
-
+<div class="col-xs-12 main-content">
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="news">
-      
+      <a class="twitter-timeline" width="250" data-dnt="true" href="https://twitter.com/MicDaMicrophone" data-widget-id="535567719840481280">Tweets by @MicDaMicrophone</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       <h1>The Feedback Lounge</h1>
       <p>Welcome to the Feedback Lounge! My name is Zach, but most people know me as Mic The Microphone. I've been gaming and doing music for the better majority of my life, and between that and doing VO work and voice acting, I can honestly say I'm living my dream. With years of experience, tons of gaming options, and a wonderful community at our backs, we strive to give back, entertain, and form a tight-knit family here. Follow up if you wanna kick it with us! We'd be glad to have you. :D</p>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="chat">
+      <div>
+        <div id="twitch_embed_player"></div>
+        <iframe frameborder="0" scrolling="no" id="chat_embed" src="http://twitch.tv/chat/embed?channel=mic_feedback&amp;popout_chat=true"></iframe>
+      </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="rules">
       <h1>DA RULES</h1>
@@ -204,4 +202,3 @@
   </div>
 </div>
 {% endblock content %}
-
