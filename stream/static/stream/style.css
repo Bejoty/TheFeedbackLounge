@@ -111,13 +111,26 @@
 
 .twitter-timeline {
   float: right;
-  margin-bottom: 10px;
-  margin-left: 25px;
 }
 
 #chat_embed {
   width: 100%;
   height: 400px;
+}
+
+
+/* Latest news posts */
+
+.hentry {
+  border-top: 1px solid #ccd;
+}
+
+.hentry:first-child {
+  margin-top: 30px;
+}
+
+.entry-last-update, .entry-footer {
+  display: none;
 }
 
 

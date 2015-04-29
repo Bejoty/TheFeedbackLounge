@@ -62,9 +62,11 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="news">
-      
-      <h1>The Feedback Lounge</h1>
-      <p>Welcome to the Feedback Lounge! My name is Zach, but most people know me as Mic The Microphone. I've been gaming and doing music for the better majority of my life, and between that and doing VO work and voice acting, I can honestly say I'm living my dream. With years of experience, tons of gaming options, and a wonderful community at our backs, we strive to give back, entertain, and form a tight-knit family here. Follow up if you wanna kick it with us! We'd be glad to have you. :D</p>
+      {% if latest_news %}
+        {% for object in latest_news %}
+          {% include object.content_template with object_content=object.html_preview continue_reading=1 %}
+        {% endfor %}
+      {% endif %}
     </div>
     <div role="tabpanel" class="tab-pane" id="rules">
       <h1>DA RULES</h1>
