@@ -129,6 +129,11 @@
   margin-top: 30px;
 }
 
+.entry-image img {
+  float: left;
+  max-height: 100px;
+}
+
 .entry-last-update, .entry-footer {
   display: none;
 }
