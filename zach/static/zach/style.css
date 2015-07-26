@@ -1,0 +1,72 @@
+#chat_embed {
+  width: 100%;
+  height: 400px;
+}
+
+
+/* TO CONSOLIDATE */
+
+#highlights {
+  margin: 30px 15px;
+}
+
+#twitch-thumb img {
+  width: 100%;
+}
+
+#twitch-stats img {
+  max-height: 180px;
+  float: left;
+  margin-right: 20px;
+}
+
+span.offline {
+  display: none;
+}
+
+#twitch-stats p:first-child span.live {
+  margin-left: 10px;
+  color: #da0;
+}
+
+img.offline {
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.7);
+}
+
+img.offline:hover {
+  box-shadow: 0px 0px 15px 5px rgba(221,170,0,0.7);
+}
+
+img.live {
+  box-shadow: 0px 0px 10px 5px rgba(221,170,0,0.7);
+}
+
+img.live:hover {
+  box-shadow: 0px 0px 10px 5px rgba(221,170,0,1);
+}
+
+#promo {
+  border-radius: 20px;
+  border-left: 10px solid #CCD;
+  border-right: 10px solid #CCD;
+  text-align: center;
+}
+
+#promo img {
+  width: 100%;
+}
+
+#status {
+  clear: both;
+  padding: 16px 16px 0 16px;
+  margin: auto;
+}
+
+.modal-open {
+  overflow-y: inherit;
+  padding-right: 0 !important;
+}
+
+.modal-content {
+  background-color: rgb(21, 46, 114);
+}

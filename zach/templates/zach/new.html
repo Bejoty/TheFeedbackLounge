@@ -1,0 +1,111 @@
+{% extends 'base/skeleton.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Feedback Lounge{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'zach/style.css' %}">
+<link href='http://fonts.googleapis.com/css?family=Germania+One' rel='stylesheet' type='text/css'>
+{% endblock styles %}
+
+{% block scripts %}
+<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
+<script src="{% static 'swfobject/swfobject.js' %}"></script>
+<script src="{% static 'stream/twitch.js' %}"></script>
+<script src="{% static 'd3/d3.min.js' %}"></script>
+<script src="{% static 'stream/script.js' %}"></script>
+{% endblock scripts %}
+
+{% block content %}
+
+<div id="highlights" class="row">
+  <div id="twitch-thumb" class="col-xs-5">
+    <a target="_blank" href="{{ channel.url }}">
+      <img class="{{ channel.state }}" 
+           src="{{ channel.video_banner_url }}" 
+           {% if channel.state == "live" %} title="{{ channel.status }}" {% endif %} />
+    </a>
+  </div>
+
+  <div id="twitch-stats" class="col-xs-7">
+    <p><strong>{{ channel.display_name }}<span class="{{ channel.state }}">Live <em>({{ channel.viewers }})</em></span></strong></p>
+    <p> <span class="{{ channel.state }}">{{ channel.game }}</span></p>
+    <p>Views: {{ channel.views }}</p>
+    <p>Followers: {{ channel.followers }}</p>
+  </div>
+</div>
+
+<a class="btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Chat</a>
+<div class="collapse" id="collapseExample">
+  <iframe frameborder="0" scrolling="no" id="chat_embed" src="http://www.twitch.tv/mic_feedback/chat"></iframe>
+</div>
+
+<hr>
+
+<center>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#rules">Rules</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#schedule">Schedule</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#faq">FAQ</button>
+</center>
+
+<div class="modal fade" id="rules" tabindex="-1" role="dialog" aria-labelledby="rulesModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="rulesModalLabel">Rules</h4>
+      </div>
+      <div class="modal-body">
+<p>-Must be 15 years old to chat. Don't ask don't tell rule. If I don't know, I don't know. Otherwise I bop you for a while. :T</p>
+<p>-Be nice</p>
+<p>-Don't use full name @mic_feedback [Reserved for mod use only]</p>
+<p>-No controversial junk (Polotics, religion, etc)</p>
+<p>-Don't be offensive or dickbag-y</p>
+<p>-Don't be bossy. I'm not your show monkey. :T</p>
+<p>-If stream drops, don't panic homies. I'll figure it out. :D</p>
+<p>For more detailed rules, you can check <a href="http://pastebin.com/LvmmY3vL">here</a>.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="schedule" tabindex="-1" role="dialog" aria-labelledby="scheduleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="scheduleModalLabel">Schedule</h4>
+      </div>
+      <div class="modal-body">I stream every day except for Saturdays and sometimes Wednesday. I operate on PST (-3 hours from EST) and try to start by no later than 2PM. I usually stream for 5-8 hours depending on how I'm feeling physically that day. :D</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="faq" tabindex="-1" role="dialog" aria-labelledby="faqModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="faqModalLabel">FAQ</h4>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h1>NEWS</h1>
+{% for object in latest_news %}
+  {% include object.content_template with object_content=object.html_preview continue_reading=1 %}
+{% endfor %}
+
+{% endblock content %}
