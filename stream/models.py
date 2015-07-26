@@ -26,12 +26,14 @@ class Stream(models.Model):
 class Channel(models.Model):
   name = models.CharField(max_length=25)
 
+  # Channel Data
   display_name = models.CharField(max_length=25)
   status = models.CharField(max_length=250)
-  game = models.CharField(max_length=50)
+  game = models.CharField(max_length=50, null=True)
   views = models.IntegerField(default=0)
   followers = models.IntegerField(default=0)
 
+  # Stream Data
   state = models.CharField(max_length=25)
   viewers = models.IntegerField(default=0)
 
