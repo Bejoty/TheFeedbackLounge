@@ -55,9 +55,13 @@
 </ul>
 
 <div class="main-content">
-  <a class="twitter-timeline" width="250" data-dnt="true" href="https://twitter.com/MicDaMicrophone" data-widget-id="535567719840481280">Tweets by @MicDaMicrophone</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  <div style="text-align: center;"><img style="max-width: 60%;" src="{{ channel.profile_banner_url }}" /></div>
+  <div class="twitter-container alpha-remove">
+    <a class="twitter-timeline" width="250" data-dnt="true" href="https://twitter.com/MicDaMicrophone" data-widget-id="535567719840481280">Tweets by @MicDaMicrophone</a>
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    </script>
+  </div>
+  <div class="content-banner alpha-remove"><img style="max-width: 60%;" src="{{ channel.profile_banner_url }}" /></div>
 
   <!-- Tab panes -->
   <div class="tab-content">
