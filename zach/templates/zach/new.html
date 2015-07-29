@@ -1,6 +1,7 @@
 {% extends 'base/skeleton.html' %}
 
 {% load staticfiles %}
+{% load humanize %}
 
 {% block title %}Feedback Lounge{% endblock title %}
 
@@ -15,6 +16,7 @@
 <script src="{% static 'stream/twitch.js' %}"></script>
 <script src="{% static 'd3/d3.min.js' %}"></script>
 <script src="{% static 'stream/script.js' %}"></script>
+<script src="{% static 'base/script.js' %}"></script>
 {% endblock scripts %}
 
 {% block content %}
@@ -29,25 +31,29 @@
   </div>
 
   <div id="twitch-stats" class="col-xs-7">
-    <p><strong>{{ channel.display_name }}<span class="{{ channel.state }}">Live <em>({{ channel.viewers }})</em></span></strong></p>
+    <p><strong>{{ channel.display_name }}<span class="{{ channel.state }}">Live <em>({{ channel.viewers|intcomma }})</em></span></strong></p>
     <p> <span class="{{ channel.state }}">{{ channel.game }}</span></p>
-    <p>Views: {{ channel.views }}</p>
-    <p>Followers: {{ channel.followers }}</p>
+    <p data-toggle="tooltip" data-placement="left" title="Views">
+      <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> {{ channel.views|intcomma }}
+    </p>
+    <p data-toggle="tooltip" data-placement="left" title="Followers">
+      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{ channel.followers|intcomma }}
+    </p>
   </div>
 </div>
 
-<a class="btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Chat</a>
-<div class="collapse" id="collapseExample">
-  <iframe frameborder="0" scrolling="no" id="chat_embed" src="http://www.twitch.tv/mic_feedback/chat"></iframe>
-</div>
-
-<hr>
 
 <center>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#rules">Rules</button>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#schedule">Schedule</button>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#faq">FAQ</button>
+<a class="btn btn-default" role="button" data-toggle="collapse" href="#chatCollapse" aria-expanded="false" aria-controls="chatCollapse"><span class="caret"></span> Chat <span class="caret"></span></a>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rules">Rules</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#schedule">Schedule</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#faq">FAQ</button>
 </center>
+
+
+<div class="collapse" id="chatCollapse">
+  <iframe frameborder="0" scrolling="no" id="chat_embed" src="http://www.twitch.tv/mic_feedback/chat"></iframe>
+</div>
 
 <div class="modal fade" id="rules" tabindex="-1" role="dialog" aria-labelledby="rulesModalLabel">
   <div class="modal-dialog" role="document">
