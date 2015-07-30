@@ -12,7 +12,6 @@ urlpatterns = patterns('',
 
     url(r'^$', views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^base/', include('base.urls', namespace='base')),
     url(r'^stream/', include('stream.urls', namespace='stream')),
     url(r'^twitchauth/', include('twitchauth.urls', namespace='twitchauth')),
     url(r'^connect/', twitchauth.views.connect, name='connect'),
