@@ -27,181 +27,180 @@
 {% block content %}
 
 <div id="highlights" class="row">
-  <div id="twitch-thumb" class="col-xs-5">
-    <a target="_blank" href="{{ channel.url }}">
-      <img class="{{ channel.state }}" 
-           src="{{ channel.video_banner_url }}" 
-           {% if channel.state == "live" %} title="{{ channel.status }}" {% endif %} />
-    </a>
-  </div>
+    <div id="twitch-thumb" class="col-xs-5">
+        <a target="_blank" href="{{ channel.url }}">
+            <img class="{{ channel.state }}" 
+                     src="{{ channel.video_banner_url }}" 
+                     {% if channel.state == "live" %} title="{{ channel.status }}" {% endif %} />
+        </a>
+    </div>
 
-  <div id="twitch-stats" class="col-xs-4">
-    <p><strong>{{ channel.display_name }}<span class="{{ channel.state }}">Live <em>({{ channel.viewers }})</em></span></strong></p>
-    <p> <span class="{{ channel.state }}">{{ channel.game }}</span></p>
-    <p>Views: {{ channel.views }}</p>
-    <p>Followers: {{ channel.followers }}</p>
-  </div>
-    
-  <div id="promo" class="col-xs-3"><a target="_blank" title="PREMO DOG ON A SHIRT" href="http://teespring.com/twitch/mic_feedback"><img src="{% static 'stream/shirt.png' %}" /></a></div>
+    <div id="twitch-stats" class="col-xs-4">
+        <p><strong>{{ channel.display_name }}<span class="{{ channel.state }}">Live <em>({{ channel.viewers }})</em></span></strong></p>
+        <p> <span class="{{ channel.state }}">{{ channel.game }}</span></p>
+        <p>Views: {{ channel.views }}</p>
+        <p>Followers: {{ channel.followers }}</p>
+    </div>
+        
+    <div id="promo" class="col-xs-3"><a target="_blank" title="PREMO DOG ON A SHIRT" href="http://teespring.com/twitch/mic_feedback"><img src="{% static 'stream/shirt.png' %}" /></a></div>
 </div>
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" class="active nav-tab"><a href="#news" role="tab" data-toggle="tab">News</a></li>
-  <li role="presentation" class="nav-tab"><a href="#rules" role="tab" data-toggle="tab">Rules</a></li>
-  <li role="presentation" class="nav-tab"><a href="#faq" role="tab" data-toggle="tab">FAQ</a></li>
-  <li role="presentation" class="nav-tab"><a href="#schedule" role="tab" data-toggle="tab">Schedule</a></li>
-  <li class="nav-tab pull-right"><a style="margin:0;" href="live.html">THEATER MODE</a></li>
+    <li role="presentation" class="active nav-tab"><a href="#news" role="tab" data-toggle="tab">News</a></li>
+    <li role="presentation" class="nav-tab"><a href="#rules" role="tab" data-toggle="tab">Rules</a></li>
+    <li role="presentation" class="nav-tab"><a href="#faq" role="tab" data-toggle="tab">FAQ</a></li>
+    <li role="presentation" class="nav-tab"><a href="#schedule" role="tab" data-toggle="tab">Schedule</a></li>
+    <li class="nav-tab pull-right"><a style="margin:0;" href="live.html">THEATER MODE</a></li>
 </ul>
 
 <div class="main-content">
-  <a class="twitter-timeline" width="250" data-dnt="true" href="https://twitter.com/MicDaMicrophone" data-widget-id="535567719840481280">Tweets by @MicDaMicrophone</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  <div style="text-align: center;"><img style="max-width: 60%;" src="{{ channel.profile_banner_url }}" /></div>
+    <a class="twitter-timeline" width="250" data-dnt="true" href="https://twitter.com/MicDaMicrophone" data-widget-id="535567719840481280">Tweets by @MicDaMicrophone</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <div style="text-align: center;"><img style="max-width: 60%;" src="{{ channel.profile_banner_url }}" /></div>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="news">
-      
-      <h1>The Feedback Lounge</h1>
-      <p>Welcome to the Feedback Lounge! My name is Zach, but most people know me as Mic The Microphone. I've been gaming and doing music for the better majority of my life, and between that and doing VO work and voice acting, I can honestly say I'm living my dream. With years of experience, tons of gaming options, and a wonderful community at our backs, we strive to give back, entertain, and form a tight-knit family here. Follow up if you wanna kick it with us! We'd be glad to have you. :D</p>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="news">
+            
+            <h1>The Feedback Lounge</h1>
+            <p>Welcome to the Feedback Lounge! My name is Zach, but most people know me as Mic The Microphone. I've been gaming and doing music for the better majority of my life, and between that and doing VO work and voice acting, I can honestly say I'm living my dream. With years of experience, tons of gaming options, and a wonderful community at our backs, we strive to give back, entertain, and form a tight-knit family here. Follow up if you wanna kick it with us! We'd be glad to have you. :D</p>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="rules">
+            <h1>DA RULES</h1>
+            <p><strong>This stream is intended for viewers age 15+</strong> <em>If you're revealed as younger, you will be banned -- no exceptions.</em></p>
+            <p><strong>Respect fellow viewers</strong> <em>Discrimination, rape threats, suicide threats, etc. are forbidden.</em></p>
+            <p><strong>Respect the moderators</strong> <em>Feel free to poke fun from time to time, but if told to stop, stop.</em></p>
+            <p><strong>Salt happens</strong> <em>Let me rage and calm down in due time.</em></p>
+            <p><em>Note that there is a ~20 second delay between my actions and your screen.</em></p>
+
+            <h2>Bannable Offenses</h2>
+            <ul>
+                <li>Bans are accompanied with a purge of your previous messages in chat.</li>
+                <li>Each repeat offense results in an increased length of subsequent bans, at moderator discretion.</li>
+                <li>Wait out your ban respectfully. Lashing out and ban evasion will not be tolerated.</li>
+            </ul>
+
+            <dl>
+                <dt>Warning</dt>
+                <dd>
+                    Backseat gaming (unless requested)<br>
+                    Content requests<br>
+                    Unprompted suggestions<br>
+                    Redundant questions
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>10 Minutes</dt>
+                <dd>
+                    Requesting moderator status<br>
+                    Solicitation<br>
+                    Discriminating or hateful speech
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>1 Hour</dt>
+                <dd>
+                    Ignorance of posted rules
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>1 Day</dt>
+                <dd>
+                    Disobeying moderators
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>2 Days</dt>
+                <dd>
+                    Ban evasion<br>
+                    Excuses (plead at your own risk)
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>Permaban</dt>
+                <dd>
+                    Underage viewership
+                </dd>
+            </dl>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="faq">
+            <h1>TERMS TO KNOW</h1>
+
+            <p><strong>RNG</strong>: <em>Random Number Generator (Determines random outcomes. Unpredictable and something you learn to  roll with. Good RNG = faster time. Bad RNG = time loss.)</em></p>
+
+            <p><strong>PB</strong>: <em>Personal Best or Peanut Butter</em></p>
+
+            <p><strong>Gold/Glod</strong>: <em>Gold split. Indicates that this is the fastest you've ever done a section. Glod is a variation of Gold.</em></p>
+
+            <p><strong>Split</strong>: <em>A segment of the run. Used as a marker to indicate pace against PB or World Record.</em></p>
+
+            <p><strong>Pause Buffering</strong>: <em>Repeatedly pausing and unpausing the game to slow down certain sections of the game and make the games easier to execute.</em></p>
+
+            <h1>FAQ</h1>
+
+            <p><strong>What is the Mini-Game Coaster?</strong></p>
+
+            <p><em>Minigame Coaster is a sub-section of Mini-Game Land in Mario Party 2. It's up to 9 worlds long and is a trial system in which you have to beat out CPU players in different minigames on varying difficulties.</em></p>
+
+            <p><strong>What is your personal best?</strong></p>
+
+            <p><em>My current PBs are as follows:</em></p>
+
+            <blockquote><ul>
+            <li><em>N64 Normal Coaster: <a href="http://www.twitch.tv/mic_feedback/c/5107283">00:30:59.26</a> [WR]</em></li>
+            <li><em>N64 Hard Coaster: <a href="http://www.twitch.tv/mic_feedback/c/5060938">00:48:40.54</a> [WR]</em></li>
+            <li><em>Wii VC Normal Coaster: <a href="http://www.twitch.tv/mic_feedback/c/4722697">00:30:32.94</a> [WR]</em></li>
+            <li><em>Wii VC Hard Coaster: 00:51:19.33 (Offline) [WR]</em></li>
+            </ul>
+            </blockquote>
+
+            <p><strong>Why do you have to pick a second player?</strong></p>
+
+            <p><em>During 2V2 minigames, you need a partner to help you. As such, the game has you pick a dedicated partner that will be your personal AI in all 2V2 minigames.</em></p>
+
+            <p><strong>Oh! So does that mean co-op?</strong></p>
+
+            <p><em>No, it does not. Co-op would make this game horrendously unbalanced (In this mode, anyways). You'd have the option to gang up on enemy AI and make half of the more difficult games very easy. As such, this is a SINGLE PLAYER MODE. There is not, nor will there ever be, co-op for this mode.</em></p>
+
+            <p><strong>But why would you even need to pick a partner though?</strong></p>
+
+            <p><em>For the sake of consistency. It's easier to give a player a partner character that will never appear as an adversary against you rather than partner you with a random character each time, thus confusing you when you can't determine which partner character on screen is yours. It's silly.</em></p>
+
+            <p><strong>What is the current World Record for this?</strong></p>
+
+            <p><em>The TAS for Hard Mode is about 45 minutes in length. The current WR For Hard on N64 is 00:48:40.54 and Normal is 00:30:59.26. The WR for Wii VC on Hard (though unofficial) is 00:51:19.33 and Normal is 00:30:32.94. All four records were set and are currently upheld by myself (Which isn't saying much since I'm currently uncontested).</em></p>
+
+            <p><strong>Why are N64 and Wii VC separated?</strong></p>
+
+            <p><em>There's a gross difference in frame rate, lag, etc between N64 and Wii VC, with Wii VC being the faster of the two. Because the difference is so staggering, I've decided to have both categories separated with N64 being the standard.</em></p>
+
+            <p><strong>But if Wii VC is faster, why not make VC the standard???</strong></p>
+
+            <p><em>There's a lot of controversy revolving around Wii VC versions for quite a few games. With MP2, I noticed the time difference almost immediately, but I didn't want to ban Wii VC because it's easy to get a hold of and a lot cheaper than getting an N64 hard copy. That said, I believe the challenge of running it on N64 is more worthwhile and impressive, thus why I made N64 the standard.</em></p>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="schedule">
+            <h1>Streaming Schedule</h1>
+            <p>Here are the general times in which I start my stream. All times are in UTC - 8 hours (Pacific Standard Time. Add +3 hours for Eastern Time, +8 for UK).</p>
+            <blockquote>
+                <ul>
+                <li><strong>Sunday</strong>: <em>12N - 3-4PM, 6PM - 8-9PM</em></li>
+                <li><strong>Monday</strong>: <em>11AM - 2-3PM, 5PM - 8-9PM</em></li>
+                <li><strong>Tuesday</strong>:  <em>11AM - 2-3PM, 5PM - 8-9PM</em></li>
+                <li><strong>Wednesday</strong>:  <em>Possible Day Off. May or may not stream.</em></li>
+                <li><strong>Thursday</strong>:  <em>11AM - 2-3PM, 5PM - 8-9PM</em></li>
+                <li><strong>Friday</strong>:  <em>12N - 3-4PM, 6PM - 9-10PM</em></li>
+                <li><strong>Saturday</strong>: <em>Day Off</em></li>
+                </ul>
+            </blockquote>
+            <p><strong>Please note that any and all start times are subject to change</strong>.</p>
+            <p> <strong>If you want to keep up on what's going on, make sure to follow me on Twitter, Tumblr, and Youtube!</strong></p>
+        </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="rules">
-      <h1>DA RULES</h1>
-      <p><strong>This stream is intended for viewers age 15+</strong> <em>If you're revealed as younger, you will be banned -- no exceptions.</em></p>
-      <p><strong>Respect fellow viewers</strong> <em>Discrimination, rape threats, suicide threats, etc. are forbidden.</em></p>
-      <p><strong>Respect the moderators</strong> <em>Feel free to poke fun from time to time, but if told to stop, stop.</em></p>
-      <p><strong>Salt happens</strong> <em>Let me rage and calm down in due time.</em></p>
-      <p><em>Note that there is a ~20 second delay between my actions and your screen.</em></p>
-
-      <h2>Bannable Offenses</h2>
-      <ul>
-        <li>Bans are accompanied with a purge of your previous messages in chat.</li>
-        <li>Each repeat offense results in an increased length of subsequent bans, at moderator discretion.</li>
-        <li>Wait out your ban respectfully. Lashing out and ban evasion will not be tolerated.</li>
-      </ul>
-
-      <dl>
-        <dt>Warning</dt>
-        <dd>
-          Backseat gaming (unless requested)<br>
-          Content requests<br>
-          Unprompted suggestions<br>
-          Redundant questions
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>10 Minutes</dt>
-        <dd>
-          Requesting moderator status<br>
-          Solicitation<br>
-          Discriminating or hateful speech
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>1 Hour</dt>
-        <dd>
-          Ignorance of posted rules
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>1 Day</dt>
-        <dd>
-          Disobeying moderators
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>2 Days</dt>
-        <dd>
-          Ban evasion<br>
-          Excuses (plead at your own risk)
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>Permaban</dt>
-        <dd>
-          Underage viewership
-        </dd>
-      </dl>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="faq">
-      <h1>TERMS TO KNOW</h1>
-
-      <p><strong>RNG</strong>: <em>Random Number Generator (Determines random outcomes. Unpredictable and something you learn to  roll with. Good RNG = faster time. Bad RNG = time loss.)</em></p>
-
-      <p><strong>PB</strong>: <em>Personal Best or Peanut Butter</em></p>
-
-      <p><strong>Gold/Glod</strong>: <em>Gold split. Indicates that this is the fastest you've ever done a section. Glod is a variation of Gold.</em></p>
-
-      <p><strong>Split</strong>: <em>A segment of the run. Used as a marker to indicate pace against PB or World Record.</em></p>
-
-      <p><strong>Pause Buffering</strong>: <em>Repeatedly pausing and unpausing the game to slow down certain sections of the game and make the games easier to execute.</em></p>
-
-      <h1>FAQ</h1>
-
-      <p><strong>What is the Mini-Game Coaster?</strong></p>
-
-      <p><em>Minigame Coaster is a sub-section of Mini-Game Land in Mario Party 2. It's up to 9 worlds long and is a trial system in which you have to beat out CPU players in different minigames on varying difficulties.</em></p>
-
-      <p><strong>What is your personal best?</strong></p>
-
-      <p><em>My current PBs are as follows:</em></p>
-
-      <blockquote><ul>
-      <li><em>N64 Normal Coaster: <a href="http://www.twitch.tv/mic_feedback/c/5107283">00:30:59.26</a> [WR]</em></li>
-      <li><em>N64 Hard Coaster: <a href="http://www.twitch.tv/mic_feedback/c/5060938">00:48:40.54</a> [WR]</em></li>
-      <li><em>Wii VC Normal Coaster: <a href="http://www.twitch.tv/mic_feedback/c/4722697">00:30:32.94</a> [WR]</em></li>
-      <li><em>Wii VC Hard Coaster: 00:51:19.33 (Offline) [WR]</em></li>
-      </ul>
-      </blockquote>
-
-      <p><strong>Why do you have to pick a second player?</strong></p>
-
-      <p><em>During 2V2 minigames, you need a partner to help you. As such, the game has you pick a dedicated partner that will be your personal AI in all 2V2 minigames.</em></p>
-
-      <p><strong>Oh! So does that mean co-op?</strong></p>
-
-      <p><em>No, it does not. Co-op would make this game horrendously unbalanced (In this mode, anyways). You'd have the option to gang up on enemy AI and make half of the more difficult games very easy. As such, this is a SINGLE PLAYER MODE. There is not, nor will there ever be, co-op for this mode.</em></p>
-
-      <p><strong>But why would you even need to pick a partner though?</strong></p>
-
-      <p><em>For the sake of consistency. It's easier to give a player a partner character that will never appear as an adversary against you rather than partner you with a random character each time, thus confusing you when you can't determine which partner character on screen is yours. It's silly.</em></p>
-
-      <p><strong>What is the current World Record for this?</strong></p>
-
-      <p><em>The TAS for Hard Mode is about 45 minutes in length. The current WR For Hard on N64 is 00:48:40.54 and Normal is 00:30:59.26. The WR for Wii VC on Hard (though unofficial) is 00:51:19.33 and Normal is 00:30:32.94. All four records were set and are currently upheld by myself (Which isn't saying much since I'm currently uncontested).</em></p>
-
-      <p><strong>Why are N64 and Wii VC separated?</strong></p>
-
-      <p><em>There's a gross difference in frame rate, lag, etc between N64 and Wii VC, with Wii VC being the faster of the two. Because the difference is so staggering, I've decided to have both categories separated with N64 being the standard.</em></p>
-
-      <p><strong>But if Wii VC is faster, why not make VC the standard???</strong></p>
-
-      <p><em>There's a lot of controversy revolving around Wii VC versions for quite a few games. With MP2, I noticed the time difference almost immediately, but I didn't want to ban Wii VC because it's easy to get a hold of and a lot cheaper than getting an N64 hard copy. That said, I believe the challenge of running it on N64 is more worthwhile and impressive, thus why I made N64 the standard.</em></p>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="schedule">
-      <h1>Streaming Schedule</h1>
-      <p>Here are the general times in which I start my stream. All times are in UTC - 8 hours (Pacific Standard Time. Add +3 hours for Eastern Time, +8 for UK).</p>
-      <blockquote>
-        <ul>
-        <li><strong>Sunday</strong>: <em>12N - 3-4PM, 6PM - 8-9PM</em></li>
-        <li><strong>Monday</strong>: <em>11AM - 2-3PM, 5PM - 8-9PM</em></li>
-        <li><strong>Tuesday</strong>:  <em>11AM - 2-3PM, 5PM - 8-9PM</em></li>
-        <li><strong>Wednesday</strong>:  <em>Possible Day Off. May or may not stream.</em></li>
-        <li><strong>Thursday</strong>:  <em>11AM - 2-3PM, 5PM - 8-9PM</em></li>
-        <li><strong>Friday</strong>:  <em>12N - 3-4PM, 6PM - 9-10PM</em></li>
-        <li><strong>Saturday</strong>: <em>Day Off</em></li>
-        </ul>
-      </blockquote>
-      <p><strong>Please note that any and all start times are subject to change</strong>.</p>
-      <p> <strong>If you want to keep up on what's going on, make sure to follow me on Twitter, Tumblr, and Youtube!</strong></p>
-    </div>
-  </div>
 </div>
 {% endblock content %}
-
