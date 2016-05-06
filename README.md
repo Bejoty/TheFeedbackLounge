@@ -6,13 +6,13 @@ This website is built for use by Zach Lobertini (aka "[Mic_Feedback](http://www.
 
 This project is being retooled from the ground up due to client requests and knowledge gained since its conception, including best practices learned from the book [*Two Scoops of Django*](http://twoscoopspress.org/).
 
-This transition is scheduled for the month of August 2015, and will deploy via the URL: [mic.sexy](http://mic.sexy).
+This transition is scheduled for Summer 2016, and will deploy via the URL: [mic.sexy](http://mic.sexy).
 
 To see a current snapshot of development, please visit: [sexymic.bejoty.com](http://sexymic.bejoty.com).
 
 ### Back-end
 
-* [Django 1.8.3](https://www.djangoproject.com/) Web framework
+* [Django 1.9.5](https://www.djangoproject.com/) Web framework
 * [Twitch.tv API v3](https://github.com/justintv/Twitch-API) RESTful integration
 * [Zinnia](http://django-blog-zinnia.com/) Weblog application
 
