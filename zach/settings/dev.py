@@ -2,8 +2,6 @@ from zach.settings.base import *
 
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 SECRET_KEY = 'this is not a secret key'
 
 DATABASES = {
