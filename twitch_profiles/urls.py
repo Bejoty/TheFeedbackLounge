@@ -1,7 +1,7 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 from twitch_profiles import views
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^(?P<username>\w+)/$', views.view, name='view'),
-)
+]

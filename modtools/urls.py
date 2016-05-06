@@ -1,7 +1,7 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 from modtools import views
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^viewers/', views.viewers, name='viewers'),
-)
+]
