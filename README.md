@@ -12,7 +12,7 @@ To see a current snapshot of development, please visit: [sexymic.bejoty.com](htt
 
 ### Back-end
 
-* [Django 1.9.5](https://www.djangoproject.com/) Web framework
+* [Django 1.9.6](https://www.djangoproject.com/) Web framework
 * [Twitch.tv API v3](https://github.com/justintv/Twitch-API) RESTful integration
 * [Zinnia](http://django-blog-zinnia.com/) Weblog application
 
