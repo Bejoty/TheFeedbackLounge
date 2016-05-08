@@ -6,6 +6,7 @@ import twitch_profiles
 import twitchauth
 
 urlpatterns = [
+    url(r'^$', views.agency, name='agency'),
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^stream/', include('stream.urls', namespace='stream')),

@@ -1,0 +1,38 @@
+.callout.large {
+	background-image: url('mic_oras.jpg');
+    background-size: cover;
+    background-position: 20% center;
+    color: #eee;
+    position: relative;
+    padding: 8rem 3rem;
+}
+
+.callout .top-bar {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.top-bar, .top-bar .menu {
+	background: transparent;
+}
+
+.top-bar a {
+	color: #eee;
+}
+
+.widgets .columns {
+	border: 1px solid gray;
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.widgets .columns:hover {
+	background: #eee;
+}
+
+.intro p {
+	padding-top: 2em;
+}

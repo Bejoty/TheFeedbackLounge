@@ -9,3 +9,7 @@ def index(request):
         channel.update()
     # latest_news = Entry.objects.order_by('-creation_date')[:5]
     return render(request, 'zach/new.html', {'channel': channel})
+
+
+def agency(request):
+    return render(request, 'zach/agency.html')
