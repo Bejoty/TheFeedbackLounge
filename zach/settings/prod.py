@@ -3,7 +3,10 @@ from zach.secret import SECRET_KEY, DB_PASS
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['sexymic.bejoty.com']
+ALLOWED_HOSTS = [
+    'sexymic.bejoty.com',
+    'mic.bejoty.com',
+]
 
 ADMINS = (
     ('Bejoty', 'bejotygames@gmail.com'),
